@@ -12,10 +12,10 @@ __init__:
 	$(SUDO_PACMAN) base-devel git gcc
 
 	mkdir -p ~/repos/aur
-	mkdir -p ~/repos/github
+	mkdir -p ~/repos/github/{chanahl,siduck}
 
 	# st
-	cd ~/repos/github && \
+	cd ~/repos/github/siduck && \
 		git clone https://github.com/siduck/st.git && \
 		cd st && \
 		sudo make install
