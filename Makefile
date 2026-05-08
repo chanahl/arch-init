@@ -5,8 +5,7 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 .PHONY: __init__ __upgrade__ \
 	all \
-	audio browsers chat drivers editors files fonts gaming \
-	terminal utilities video
+	audio browsers chat drivers editors files fonts gaming terminal utilities video
 
 __init__:
 	sudo pacman -Syu --noconfirm
