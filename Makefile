@@ -40,7 +40,7 @@ __upgrade__:
 	echo "Removing orphan packages"
 	yay -Qdtq | xargs -r yay -Rns
 
-  echo "Clearing ~/.cache"
+	echo "Clearing ~/.cache"
 	home_cache_used=$$(du -sh ~/.cache 2>/dev/null | cut -f1); \
 	rm -rf ~/.cache/*; \
 	echo "Previous cache size: $$home_cache_used"
