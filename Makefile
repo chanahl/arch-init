@@ -3,7 +3,8 @@ SHELL := /bin/bash
 SUDO_PACMAN := sudo pacman --needed --noconfirm -S
 YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
 
-.PHONY: all init \
+.PHONY: __init__ __upgrade__ \
+	all \
 	audio browsers chat drivers editors files fonts gaming \
 	terminal utilities video
 
@@ -31,18 +32,18 @@ __upgrade__:
 	yay -Syu
 	sudo pacman -S archlinux-keyring
 
-	echo "Clearing pacman cache"
-	pacman_cache_space_used="$(du -sh /var/cache/pacman/pkg/)"
-	paccache -r
-	echo "Space saved: $pacman_cache_space_used"
+  echo "Clearing pacman cache"
+	pacman_cache_before=$$(du -sh /var/cache/pacman/pkg/ | cut -f1); \
+	paccache -r; \
+	echo "Previous cache size: $$pacman_cache_before"
 
 	echo "Removing orphan packages"
-	yay -Qdtq | yay -Rns -
+	yay -Qdtq | xargs -r yay -Rns
 
-	echo "Clearing ~/.cache"
-	home_cache_used="$(du -sh ~/.cache)"
-	rm -rf ~/.cache/
-	echo "Spaced saved: $home_cache_used"
+  echo "Clearing ~/.cache"
+	home_cache_used=$$(du -sh ~/.cache 2>/dev/null | cut -f1); \
+	rm -rf ~/.cache/*; \
+	echo "Previous cache size: $$home_cache_used"
 
 	echo "Clearing system logs"
 	journalctl --vacuum-time=7d
