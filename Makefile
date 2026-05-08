@@ -7,22 +7,9 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 	audio browsers chat drivers editors files fonts gaming \
 	terminal utilities video
 
-all: \
-	audio \
-	browsers \
-	chat \
-	drivers \
-	editors \
-	files \
-	fonts \
-	gaming \
-	terminal \
-	utilities \
-	video
-
-init:
+__init__:
 	sudo pacman -Syu --noconfirm
-	sudo pacman -S --needed base-devel git gcc --noconfirm
+	$(SUDO_PACMAN) base-devel git gcc
 
 	mkdir -p ~/repos/aur
 	mkdir -p ~/repos/github
@@ -38,6 +25,40 @@ init:
 		git clone https://aur.archlinux.org/yay.git && \
 		cd yay && \
 		makepkg -si --noconfirm
+
+__upgrade__:
+	echo "Upgrading system"
+	yay -Syu
+	sudo pacman -S archlinux-keyring
+
+	echo "Clearing pacman cache"
+	pacman_cache_space_used="$(du -sh /var/cache/pacman/pkg/)"
+	paccache -r
+	echo "Space saved: $pacman_cache_space_used"
+
+	echo "Removing orphan packages"
+	yay -Qdtq | yay -Rns -
+
+	echo "Clearing ~/.cache"
+	home_cache_used="$(du -sh ~/.cache)"
+	rm -rf ~/.cache/
+	echo "Spaced saved: $home_cache_used"
+
+	echo "Clearing system logs"
+	journalctl --vacuum-time=7d
+
+all: \
+	audio \
+	browsers \
+	chat \
+	drivers \
+	editors \
+	files \
+	fonts \
+	gaming \
+	terminal \
+	utilities \
+	video
 
 audio:
 	$(SUDO_PACMAN) \
