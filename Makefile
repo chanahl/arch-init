@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 SUDO_PACMAN := sudo pacman --needed --noconfirm -S
-YAY := echo y | LANG=C yay --needed --noprovides --answerclean None --answerdiff None --mflags "--noconfirm" -S
+YAY := echo y | LANG=C yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
 
 .PHONY: all init \
 	audio browsers chat drivers editors files fonts gaming \
