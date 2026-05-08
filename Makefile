@@ -141,10 +141,6 @@ utilities:
 		soulseekqt \
 		thunderbird-esr-bin
 
-	sudo systemctl enable --now nordvpnd
-	sudo usermod -aG nordvpn $$USER
-	systemctl --user enable --now plasmazones.service
-
 video:
 	$(SUDO_PACMAN) \
 		vlc \
