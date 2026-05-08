@@ -4,9 +4,7 @@
 - [ISO](#iso)
 - [Installation](#installation)
 - [Ctrl+Alt+F3](#ctrlaltf3)
-- [0\_init.sh](#0_initsh)
-- [1\_ppkgs.sh](#1_ppkgssh)
-- [2\_ypkgs.sh](#2_ypkgssh)
+- [Makefile](#makefile)
 
 ## ISO
 
@@ -103,20 +101,11 @@ Password:
 [achan@archlinux ~]]$ _
 ```
 
-## 0_init.sh
+## Makefile
 
 ```sh
-curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/0_init.sh
-```
-
-## 1_ppkgs.sh
-
-```sh
-curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/1_ppkgs.sh
-```
-
-## 2_ypkgs.sh
-
-```sh
-curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/2_ypkgs.sh
+curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
+sudo make init
+sudo make all
+reboot
 ```
