@@ -32,7 +32,7 @@ __upgrade__:
 	yay -Syu
 	sudo pacman -S archlinux-keyring
 
-  echo "Clearing pacman cache"
+	echo "Clearing pacman cache"
 	pacman_cache_before=$$(du -sh /var/cache/pacman/pkg/ | cut -f1); \
 	paccache -r; \
 	echo "Previous cache size: $$pacman_cache_before"
