@@ -16,6 +16,6 @@ sudo make install
 cd ~/repos/aur/
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 
 reboot
