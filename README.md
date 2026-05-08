@@ -105,7 +105,8 @@ Password:
 
 ```sh
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
-make init
+make __init__
 make all
+make __upgrade__
 reboot
 ```
