@@ -121,6 +121,7 @@ terminal:
 utilities:
 	$(SUDO_PACMAN) \
 		7zip \
+		cifs-utils \
 		feh \
 		lact \
 		lm_sensors \
