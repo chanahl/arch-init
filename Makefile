@@ -38,7 +38,7 @@ __upgrade__:
 	echo "Previous cache size: $$pacman_cache_before"
 
 	echo "Removing orphan packages"
-	yay -Qdtq | xargs -r yay -Rns
+	yay -Qdtq | yay -Rns -
 
 	echo "Clearing ~/.cache"
 	home_cache_used=$$(du -sh ~/.cache 2>/dev/null | cut -f1); \
