@@ -62,9 +62,7 @@ chat:
 drivers:
 	$(SUDO_PACMAN) \
 		linux-headers \
-		nvidia-dkms \
-		nvidia-utils \
-		lib32-nvidia-utils
+		nvidia-utils lib32-nvidia-utils
 
 editors:
 	$(SUDO_PACMAN) neovim
