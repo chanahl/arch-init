@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo pacman -Syu --noconfirm
+sudo pacman -S base-devel gd git
 
 mkdir -p ~/repos/{aur,github}
 
