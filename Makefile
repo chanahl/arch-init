@@ -9,16 +9,16 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 __init__:
 	sudo pacman -Syu --noconfirm
-	$(SUDO_PACMAN) base-devel git gcc
+	$(SUDO_PACMAN) base-devel foot git gcc
 
 	mkdir -p ~/repos/aur
 	mkdir -p ~/repos/github/{chanahl,siduck}
 
 	# st
-	cd ~/repos/github/siduck && \
-		git clone https://github.com/siduck/st.git && \
-		cd st && \
-		sudo make install
+	#cd ~/repos/github/siduck && \
+	#	git clone https://github.com/siduck/st.git && \
+	#	cd st && \
+	#	sudo make install
 
 	# yay
 	cd ~/repos/aur && \
@@ -117,6 +117,8 @@ terminal:
 	$(SUDO_PACMAN) \
 		fastfetch \
 		zsh
+
+  curl -s http://ohmyposh.dev/install.sh | bash -s
 
 utilities:
 	$(SUDO_PACMAN) \
