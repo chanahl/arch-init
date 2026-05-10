@@ -5,7 +5,7 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 .PHONY: __init__ __upgrade__ \
 	all \
-	audio browsers chat drivers editors files fonts gaming terminal utilities video
+	audio browsers chat drivers editors files fonts gaming terminal tui utilities video
 
 __init__:
 	sudo pacman -Syu --noconfirm
@@ -57,6 +57,7 @@ all: \
 	fonts \
 	gaming \
 	terminal \
+  tui \
 	utilities \
 	video
 
@@ -119,6 +120,21 @@ terminal:
 		zsh
 
   curl -s http://ohmyposh.dev/install.sh | bash -s
+
+tui:
+	$(SUDO_PACMAN) \
+		yazi \
+		7zip \
+		fd \
+		ffmpeg \
+		fzf \
+		imagemagick \
+		jq \
+		poppler \
+		resvg \
+		ripgrep \
+		xclip \
+		zoxide
 
 utilities:
 	$(SUDO_PACMAN) \
