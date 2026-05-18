@@ -49,8 +49,12 @@ archinstall
         - [ ] ext4 (fast and reliable but not as fast as xfs)
         - [ ] xfs (cannot resize drive after initialization)
         - [ ] f2fs (wtf is this)
-      - Would you like to create a separate partition for /home?
-        - No
+      - Would you like to use BTRFS subvolumes with a default structure?
+        - Yes
+      - Would you like to use compression or disable CoW?
+        - Use compression
+    - BTRFS snapshots
+      - Timeshift
 - Swap
   - Swap on zram: Enabled
   - Compression algorithm: zstd
@@ -61,7 +65,7 @@ archinstall
 - Kernels
   - Kernel: linux
 - Hostname
-  - Hostname: archlinux
+  - Hostname: hyprarch
 - Authentication
   - Root password: ****
   - User account

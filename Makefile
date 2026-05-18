@@ -112,8 +112,11 @@ gaming:
 hyprland:
 	$(SUDO_PACMAN) \
 		hyprland \
-		hyprpaper
+		hyprlock \
+		hyprpaper \
 		hyprpolkitagent \
+		qt5-wayland \
+		qt6-wayland \
 		xdg-desktop-portal \
 		xdg-desktop-portal-hyprland
 
