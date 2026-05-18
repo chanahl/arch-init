@@ -5,20 +5,14 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 .PHONY: __init__ __upgrade__ \
 	all \
-	audio browsers chat drivers editors files fonts gaming terminal tui utilities video
+	audio browsers chat editors files fonts gaming terminal tui utilities video
 
 __init__:
 	sudo pacman -Syu --noconfirm
 	$(SUDO_PACMAN) base-devel foot git gcc
 
 	mkdir -p ~/repos/aur
-	mkdir -p ~/repos/github/{chanahl,siduck}
-
-	# st
-	#cd ~/repos/github/siduck && \
-	#	git clone https://github.com/siduck/st.git && \
-	#	cd st && \
-	#	sudo make install
+	mkdir -p ~/repos/github/chanahl
 
 	# yay
 	cd ~/repos/aur && \
@@ -63,7 +57,7 @@ all: \
 
 audio:
 	$(SUDO_PACMAN) \
-		cava \
+		qpwgraph \
 		pipewire \
 		pipewire-audio \
 		pipewire-pulse \
@@ -84,10 +78,12 @@ chat:
 drivers:
 	$(SUDO_PACMAN) \
 		linux-headers \
-		nvidia-utils lib32-nvidia-utils
+		nvidia-dkms nvidia-utils lib32-nvidia-utils
 
 editors:
 	$(SUDO_PACMAN) neovim
+	git clone https://github.com/LazyVim/starter ~/.config/nvim
+	rm -rf ~/.config/nvim/.git
 
 	$(YAY) visual-studio-code-bin
 
@@ -98,7 +94,6 @@ files:
 
 fonts:
 	$(SUDO_PACMAN) \
-		ttf-font-awesome \
 		ttf-jetbrains-mono-nerd
 
 gaming:
@@ -114,10 +109,23 @@ gaming:
 		faugus-launcher \
 		protonplus
 
+hyprland:
+	$(SUDO_PACMAN) \
+		hyprland \
+		hyprpaper
+		hyprpolkitagent \
+		xdg-desktop-portal \
+		xdg-desktop-portal-hyprland
+
+	$(YAY) \
+		bibata-original-theme \
+		orbit-wifi \
+		waybar-cava-git \
+		waybar-module-pacman-updates-git
+
 terminal:
 	$(SUDO_PACMAN) \
-		fastfetch \
-		zsh
+		fastfetch
 
   curl -s http://ohmyposh.dev/install.sh | bash -s
 
@@ -139,24 +147,30 @@ tui:
 utilities:
 	$(SUDO_PACMAN) \
 		7zip \
+		btop \
 		cifs-utils \
 		feh \
+		grim \
+		keychain \
 		lact \
 		lm_sensors \
 		man \
+		nwg-look \
 		obs-studio \
 		openrgb \
 		qbittorrent \
+		rofi \
+		slurp \
 		solaar \
 		stow \
 		xclip \
-		wine
+		wine \
+		wl-clipboard
 
 	$(YAY) \
 		1password \
 		bottles \
 		nordvpn-bin \
-		plasmazones \
 		soulseekqt \
 		thunderbird-esr-bin
 

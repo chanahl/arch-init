@@ -45,9 +45,9 @@ archinstall
   - Partitioning
     - Use a best-effort default partition layout
       - /dev/nvme0n1: (__choose the 'os' drive__)
-        - [ ] btrfs (super slow)
+        - [x] btrfs (super slow)
         - [ ] ext4 (fast and reliable but not as fast as xfs)
-        - [x] xfs (cannot resize drive after initialization)
+        - [ ] xfs (cannot resize drive after initialization)
         - [ ] f2fs (wtf is this)
       - Would you like to create a separate partition for /home?
         - No
