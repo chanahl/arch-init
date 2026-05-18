@@ -3,7 +3,6 @@
 
 - [ISO](#iso)
 - [Installation](#installation)
-- [Ctrl+Alt+F3](#ctrlaltf3)
 - [Makefile](#makefile)
 
 ## ISO
@@ -94,14 +93,12 @@ archinstall
   - Installation completed in 1m42s
     - Reboot system
 
-## Ctrl+Alt+F3
-
 ```
-Arch Linux 7.0.3-arch1-2 (tt3)
+Arch Linux 7.0.8-arch1-1 (tty1)
 
-archlinux login: achan
+hyprarch login: achan
 Password:
-[achan@archlinux ~]]$ _
+[achan@hyprarch ~]]$ _
 ```
 
 ## Makefile
