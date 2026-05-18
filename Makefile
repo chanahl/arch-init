@@ -50,6 +50,7 @@ all: \
 	files \
 	fonts \
 	gaming \
+	hyprland \
 	terminal \
   tui \
 	utilities \
@@ -58,6 +59,7 @@ all: \
 audio:
 	$(SUDO_PACMAN) \
 		qpwgraph \
+		pavucontrol \
 		pipewire \
 		pipewire-audio \
 		pipewire-pulse \
