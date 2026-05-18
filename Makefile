@@ -86,7 +86,7 @@ drivers:
 	$(SUDO_PACMAN) \
 		egl-wayland \
 		linux-headers \
-		nvidia-dkms nvidia-utils lib32-nvidia-utils
+		nvidia-dkms nvidia-utils lib32-nvidia-utils libva-nvidia-driver
 
 editors:
 	$(SUDO_PACMAN) neovim
@@ -179,6 +179,7 @@ utilities:
 		stow \
 		swaync \
 		xclip \
+		wget \
 		wine \
 		wl-clipboard
 
