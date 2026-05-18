@@ -123,7 +123,7 @@ hyprland:
 		xdg-desktop-portal-hyprland
 
 	$(YAY) \
-		bibata-original-theme \
+		bibata-cursor-theme \
 		orbit-wifi \
 		waybar-cava-git \
 		waybar-module-pacman-updates-git
