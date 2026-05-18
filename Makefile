@@ -63,6 +63,7 @@ audio:
 	$(SUDO_PACMAN) \
 		cava \
 		qpwgraph \
+		pamixer \
 		pavucontrol \
 		pipewire \
 		pipewire-audio \
@@ -165,6 +166,7 @@ utilities:
 		grim \
 		keychain \
 		lact \
+		libnotify \
 		lm_sensors \
 		man \
 		nwg-look \
