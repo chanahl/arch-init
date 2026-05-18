@@ -5,11 +5,14 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 .PHONY: __init__ __upgrade__ \
 	all \
-	audio browsers chat editors files fonts gaming terminal tui utilities video
+	audio browsers chat drivers editors files fonts gaming terminal tui utilities video
 
 __init__:
 	sudo pacman -Syu --noconfirm
 	$(SUDO_PACMAN) base-devel foot git gcc openssh vim
+
+	mkdir -p /mnt/d
+	mkdir -p /mnt/alpha-prime/srv
 
 	mkdir -p ~/repos/aur
 	mkdir -p ~/repos/github/chanahl
@@ -80,6 +83,7 @@ chat:
 
 drivers:
 	$(SUDO_PACMAN) \
+		egl-wayland \
 		linux-headers \
 		nvidia-dkms nvidia-utils lib32-nvidia-utils
 
@@ -133,7 +137,7 @@ terminal:
 	$(SUDO_PACMAN) \
 		fastfetch
 
-  curl -s http://ohmyposh.dev/install.sh | bash -s
+	curl -s https://ohmyposh.dev/install.sh | bash -s
 
 tui:
 	$(SUDO_PACMAN) \
@@ -156,6 +160,7 @@ utilities:
 		bluez bluez-utils \
 		btop \
 		cifs-utils \
+		ddcutil \
 		feh \
 		grim \
 		keychain \
@@ -170,6 +175,7 @@ utilities:
 		slurp \
 		solaar \
 		stow \
+		swaync \
 		xclip \
 		wine \
 		wl-clipboard
