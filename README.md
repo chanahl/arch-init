@@ -105,6 +105,7 @@ Password:
 
 ```sh
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
+sudo pacman -S make
 make __init__
 make all
 make __upgrade__
