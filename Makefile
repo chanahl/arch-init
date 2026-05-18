@@ -58,6 +58,7 @@ all: \
 
 audio:
 	$(SUDO_PACMAN) \
+		cava \
 		qpwgraph \
 		pavucontrol \
 		pipewire \
@@ -123,7 +124,7 @@ hyprland:
 		xdg-desktop-portal-hyprland
 
 	$(YAY) \
-		bibata-cursor-theme \
+		bibata-cursor-theme-bin \
 		orbit-wifi \
 		waybar-cava-git \
 		waybar-module-pacman-updates-git
