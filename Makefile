@@ -150,6 +150,7 @@ tui:
 utilities:
 	$(SUDO_PACMAN) \
 		7zip \
+		bluez bluez-utils \
 		btop \
 		cifs-utils \
 		feh \

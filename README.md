@@ -82,7 +82,6 @@ archinstall
   - Graphics driver
     - [x] Nvidia (open kernel module for newer GPUs, Turing+)
 - Applications
-  - Audio: pipewire
 - Network configuration
   - Use Network Manager (default backend)
 - Additional packages
