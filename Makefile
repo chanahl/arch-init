@@ -9,7 +9,7 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 __init__:
 	sudo pacman -Syu --noconfirm
-	$(SUDO_PACMAN) base-devel foot git gcc ssh vim
+	$(SUDO_PACMAN) base-devel foot git gcc openssh vim
 
 	mkdir -p ~/repos/aur
 	mkdir -p ~/repos/github/chanahl
