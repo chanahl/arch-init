@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-SUDO_PACMAN := sudo pacman --needed --noconfirm -S
-YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
+SUDO_PACMAN := yes '' | sudo pacman --needed --noconfirm -S
+YAY := yes '' | yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
 
 .PHONY: __init__ __upgrade__ \
 	all \
@@ -9,7 +9,7 @@ YAY := yes | yay --needed --answerclean None --answerdiff None --mflags "--nocon
 
 __init__:
 	sudo pacman -Syu --noconfirm
-	$(SUDO_PACMAN) base-devel foot git gcc openssh vim
+	$(SUDO_PACMAN) base-devel foot git gcc gpsd openssh vim
 
 	mkdir -p /mnt/d
 	mkdir -p /mnt/alpha-prime/srv
@@ -62,12 +62,13 @@ all: \
 audio:
 	$(SUDO_PACMAN) \
 		cava \
-		qpwgraph \
+		mpd \
 		pamixer \
 		pavucontrol \
 		pipewire \
 		pipewire-audio \
 		pipewire-pulse \
+		qpwgraph \
 		wireplumber
 
 browsers:
@@ -178,6 +179,7 @@ utilities:
 		solaar \
 		stow \
 		swaync \
+		tailscale \
 		xclip \
 		wget \
 		wine \
@@ -188,6 +190,7 @@ utilities:
 		bottles \
 		nordvpn-bin \
 		soulseekqt \
+		sunshine \
 		thunderbird-esr-bin
 
 video:
