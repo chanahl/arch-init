@@ -171,7 +171,6 @@ utilities:
 		grim \
 		keychain \
 		kvantum \
-		kvantum-qt6 \
 		lact \
 		libnotify \
 		lm_sensors \
