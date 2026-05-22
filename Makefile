@@ -135,6 +135,7 @@ hyprland:
 
 	$(YAY) \
 		bibata-cursor-theme-bin \
+		nordic-theme \
 		orbit-wifi \
 		waybar-cava-git \
 		waybar-module-pacman-updates-git
@@ -178,7 +179,6 @@ utilities:
 		nwg-look \
 		obs-studio \
 		openrgb \
-		qt6ct \
 		qbittorrent \
 		rofi \
 		slurp \
@@ -195,6 +195,7 @@ utilities:
 		1password \
 		bottles \
 		nordvpn-bin \
+		qt6ct-kde \
 		soulseekqt \
 		sunshine \
 		thunderbird-esr-bin
