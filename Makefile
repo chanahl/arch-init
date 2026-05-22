@@ -102,8 +102,7 @@ editors:
 
 files:
 	$(SUDO_PACMAN) \
-		dolphin \
-		kvantum
+		dolphin
 
 fonts:
 	$(SUDO_PACMAN) \
@@ -171,6 +170,8 @@ utilities:
 		feh \
 		grim \
 		keychain \
+		kvantum \
+		kvantum-qt6 \
 		lact \
 		libnotify \
 		lm_sensors \
@@ -178,6 +179,7 @@ utilities:
 		nwg-look \
 		obs-studio \
 		openrgb \
+		qt6ct \
 		qbittorrent \
 		rofi \
 		slurp \
