@@ -71,6 +71,10 @@ audio:
 		qpwgraph \
 		wireplumber
 
+	$(YAY) \
+		cantata \
+		qt6-base qt6-declarative qt6-positioning
+
 browsers:
 	$(YAY) \
 		brave-origin-nightly-bin \
