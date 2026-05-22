@@ -107,7 +107,8 @@ files:
 
 fonts:
 	$(SUDO_PACMAN) \
-		ttf-jetbrains-mono-nerd
+		ttf-jetbrains-mono-nerd \
+		noto-fonts noto-fonts-cjk noto-fonts-emoji
 
 gaming:
 	$(SUDO_PACMAN) \
