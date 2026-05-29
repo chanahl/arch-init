@@ -1,20 +1,23 @@
-SHELL := /bin/bash
+PACMANW := yes '' | sudo pacman --needed --noconfirm -S
+PKGS := .pkgs
 
-SUDO_PACMAN := yes '' | sudo pacman --needed --noconfirm -S
-YAY := yes '' | yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
+YAYW := yes '' | yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
+YAYS := .yays
 
-.PHONY: __init__ __upgrade__ \
-	all \
-	audio browsers chat drivers editors files fonts gaming terminal tui utilities video
+.DEFAULT_GOAL := help
 
-__init__:
+help: ## Show targets (make)
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage: make <target>\n  \033[36m\033[0m\n"} /^[$$()% a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+
+init: ## Initialize Arch Linux
 	sudo pacman -Syu --noconfirm
-	$(SUDO_PACMAN) base-devel foot git gcc gpsd openssh vim
+	$(PACMANW) base-devel foot git gcc gpsd openssh tr vim xargs
 
 	mkdir -p /mnt/d
 	mkdir -p /mnt/alpha-prime/srv
 
 	mkdir -p ~/repos/aur
+	mkdir -p ~/repos/codeberg/dsge0
 	mkdir -p ~/repos/github/chanahl
 
 	# yay
@@ -23,184 +26,28 @@ __init__:
 		cd yay && \
 		makepkg -si --noconfirm
 
-__upgrade__:
-	echo "Upgrading system"
-	yay -Syu
-	sudo pacman -S archlinux-keyring
+list_all: ## Lists all packages to be installed (official and AUR)
+	@printf "[pkgs]\n"
+# 	@grep -vE '^\s*($|#)' $(PKGS)
+	@grep -vE '^\s' $(PKGS)
+	@printf "\n[yay]\n"
+# 	@grep -vE '^\s*($|#)' $(YAYS)
+	@grep -vE '^\s' $(YAYS)
 
-	echo "Clearing pacman cache"
-	pacman_cache_before=$$(du -sh /var/cache/pacman/pkg/ | cut -f1); \
-	paccache -r; \
-	echo "Previous cache size: $$pacman_cache_before"
+list_pkgs: ## Lists all official packages to be installed
+	@grep -vE '^\s*($|#)' $(PKGS)
 
-	echo "Removing orphan packages"
-	yay -Qdtq | yay -Rns -
+list_yays: ## Lists all Arch User Repository packages to be installed
+	@grep -vE '^\s*($|#)' $(YAYS)
 
-	echo "Clearing ~/.cache"
-	home_cache_used=$$(du -sh ~/.cache 2>/dev/null | cut -f1); \
-	rm -rf ~/.cache/*; \
-	echo "Previous cache size: $$home_cache_used"
+resolve_pkgs: ## Prints sync command for official packages
+	@echo "$(PACMANW) $$(grep -vE '^[[:space:]]*($|#)' $(PKGS) | tr -d '\r' | xargs)"
 
-	echo "Clearing system logs"
-	journalctl --vacuum-time=7d
+resolve_yays: ## Prints sync command for AUR packages
+	@echo "$(YAYW) $$(grep -vE '^[[:space:]]*($|#)' $(YAYS) | tr -d '\r' | xargs)"
 
-all: \
-	audio \
-	browsers \
-	chat \
-	drivers \
-	editors \
-	files \
-	fonts \
-	gaming \
-	hyprland \
-	terminal \
-  tui \
-	utilities \
-	video
+sync_pkgs: ## Runs sync command for official package
+	@grep -vE '^[[:space:]]*($|#)' $(PKGS) | tr -d '\r' | xargs $(PACMANW)
 
-audio:
-	$(SUDO_PACMAN) \
-		cava \
-		mpd \
-		pamixer \
-		pavucontrol \
-		pipewire \
-		pipewire-audio \
-		pipewire-pulse \
-		qpwgraph \
-		wireplumber
-
-	$(YAY) \
-		cantata \
-		qt6-base qt6-declarative qt6-positioning
-
-browsers:
-	$(YAY) \
-		brave-origin-nightly-bin \
-		helium-browser-bin \
-		ungoogled-chromium-bin \
-		waterfox-bin
-
-chat:
-	$(YAY) \
-		vesktop \
-		zapzap
-
-drivers:
-	$(SUDO_PACMAN) \
-		egl-wayland \
-		linux-headers \
-		nvidia-dkms nvidia-utils lib32-nvidia-utils libva-nvidia-driver
-
-editors:
-	$(SUDO_PACMAN) neovim
-	git clone https://github.com/LazyVim/starter ~/.config/nvim
-	rm -rf ~/.config/nvim/.git
-
-	$(YAY) visual-studio-code-bin
-
-files:
-	$(SUDO_PACMAN) \
-		dolphin
-
-fonts:
-	$(SUDO_PACMAN) \
-		ttf-jetbrains-mono-nerd \
-		noto-fonts noto-fonts-cjk noto-fonts-emoji
-
-gaming:
-	$(SUDO_PACMAN) \
-		gamescope \
-		lutris \
-		mangohud \
-		lib32-mangohud \
-		protontricks \
-		steam
-
-	$(YAY) \
-		faugus-launcher \
-		protonplus
-
-hyprland:
-	$(SUDO_PACMAN) \
-		hyprland \
-		hyprlock \
-		hyprpaper \
-		hyprpolkitagent \
-		qt5-wayland \
-		qt6-wayland \
-		xdg-desktop-portal \
-		xdg-desktop-portal-hyprland
-
-	$(YAY) \
-		bibata-cursor-theme-bin \
-		nordic-theme \
-		orbit-wifi \
-		waybar-cava-git \
-		waybar-module-pacman-updates-git
-
-terminal:
-	$(SUDO_PACMAN) \
-		fastfetch
-
-	curl -s https://ohmyposh.dev/install.sh | bash -s
-
-tui:
-	$(SUDO_PACMAN) \
-		yazi \
-		7zip \
-		fd \
-		ffmpeg \
-		fzf \
-		imagemagick \
-		jq \
-		poppler \
-		resvg \
-		ripgrep \
-		xclip \
-		zoxide
-
-utilities:
-	$(SUDO_PACMAN) \
-		7zip \
-		bluez bluez-utils \
-		btop \
-		cifs-utils \
-		ddcutil \
-		feh \
-		grim \
-		keychain \
-		kvantum \
-		lact \
-		libnotify \
-		lm_sensors \
-		man \
-		nwg-look \
-		obs-studio \
-		openrgb \
-		qbittorrent \
-		rofi \
-		slurp \
-		solaar \
-		stow \
-		swaync \
-		tailscale \
-		xclip \
-		wget \
-		wine \
-		wl-clipboard
-
-	$(YAY) \
-		1password \
-		bottles \
-		nordvpn-bin \
-		qt6ct-kde \
-		soulseekqt \
-		sunshine \
-		thunderbird-esr-bin
-
-video:
-	$(SUDO_PACMAN) \
-		vlc \
-		vlc-plugins-all
+sync_yays: ## Runs sync command for AUR package
+	@grep -vE '^[[:space:]]*($|#)' $(YAYS) | tr -d '\r' | xargs $(YAYW)

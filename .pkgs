@@ -1,0 +1,106 @@
+# audio
+cava
+mpd
+pamixer
+pavucontrol
+pipewire
+pipewire-audio
+pipewire-pulse
+qpwgraph
+wireplumber
+
+# drivers
+egl-wayland
+libva-nvidia-driver
+linux-headers
+nvidia-dkms
+nvidia-utils
+lib32-nvidia-utils
+
+# editors
+neovim
+#git clone https://github.com/LazyVim/starter ~/.config/nvim
+#rm -rf ~/.config/nvim/.git
+
+# file managers
+dolphin
+yazi
+
+# fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-jetbrains-mono-nerd
+
+# gaming
+gamescope
+lutris
+mangohud
+lib32-mangohud
+protontricks
+steam
+
+# hyprland
+hyprland
+hyprlock
+hyprpaper
+hyprpolkitagent
+kvantum
+libnotify
+qt6-base
+qt6-wayland
+qt6-declarative
+qt6-positioning
+rofi
+swaync
+xdg-desktop-portal
+xdg-desktop-portal-hyprland
+
+# network
+bluez
+bluez-utils
+cifs-utils
+qbittorrent
+tailscale
+
+# peripherals
+lact
+openrgb
+solaar
+
+# stream
+obs-studio
+
+# terminal
+fastfetch
+#curl -s https://ohmyposh.dev/install.sh | bash -s
+
+# utilities
+7zip
+btop
+ddcutil
+fd
+feh
+ffmpeg
+fzf
+grim
+imagemagick
+jq
+keychain
+lm_sensors
+man
+nwg-look
+poppler
+resvg
+ripgrep
+slurp
+stow
+xclip
+wget
+wine
+wl-clipboard
+zoxide
+
+# video
+vlc
+vlc-plugins-all
