@@ -13,8 +13,8 @@ init: ## Initialize Arch Linux
 	sudo pacman -Syu --noconfirm
 	$(PACMANW) base-devel foot git gcc gpsd openssh vim
 
-	mkdir -p /mnt/d
-	mkdir -p /mnt/alpha-prime/srv
+	sudo mkdir -p /mnt/d
+	sudo mkdir -p /mnt/alpha-prime/srv
 
 	mkdir -p ~/repos/aur
 	mkdir -p ~/repos/codeberg/dsge0
@@ -47,7 +47,9 @@ resolve_yays: ## Prints sync command for AUR packages
 	@echo "$(YAYW) $$(grep -vE '^[[:space:]]*($|#)' $(YAYS) | tr -d '\r' | xargs)"
 
 sync_pkgs: ## Runs sync command for official package
-	@grep -vE '^[[:space:]]*($|#)' $(PKGS) | tr -d '\r' | xargs $(PACMANW)
+# 	@grep -vE '^[[:space:]]*($|#)' $(PKGS) | tr -d '\r' | xargs $(PACMANW)
+	$(PACMANW) $$(grep -vE '^[[:space:]]*($|#)' $(PKGS) | tr -d '\r' | xargs)
 
 sync_yays: ## Runs sync command for AUR package
-	@grep -vE '^[[:space:]]*($|#)' $(YAYS) | tr -d '\r' | xargs $(YAYW)
+# 	@grep -vE '^[[:space:]]*($|#)' $(YAYS) | tr -d '\r' | xargs $(YAYW)
+	$(YAYW) $$(grep -vE '^[[:space:]]*($|#)' $(YAYS) | tr -d '\r' | xargs)

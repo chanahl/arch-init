@@ -102,5 +102,8 @@ curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.pkgs
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.yays
 sudo pacman -S make
+make init
+make sync_pkgs
+make sync_yays
 reboot
 ```
