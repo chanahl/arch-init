@@ -4,6 +4,7 @@
 - [ISO](#iso)
 - [Installation](#installation)
 - [Makefile](#makefile)
+- [Hyprland](#hyprland)
 
 ## ISO
 
@@ -106,4 +107,10 @@ make init
 make sync_pkgs
 make sync_yays
 reboot
+```
+
+## Hyprland
+
+```sh
+vim ~/.config/hypr/hyprland.lua
 ```
