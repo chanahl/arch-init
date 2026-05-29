@@ -2,7 +2,7 @@ PACMANW := yes '' | sudo pacman --needed --noconfirm -S
 PKGS := .pkgs
 
 # YAYW := yes '' | yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
-YAYW := yay --needed --answerclean None --answerdiff None --mflags "--noconfirm" -S
+YAYW := yay --needed -S
 YAYS := .yays
 
 .DEFAULT_GOAL := help
