@@ -58,7 +58,7 @@ archinstall
   - Swap on zram: Enabled
   - Compression algorithm: zstd
 - Bootloader
-  - Bootloader: Limine
+  - Bootloader: Grub
   - UKI: Enabled
   - Removable: Enable
 - Kernels
@@ -74,12 +74,6 @@ archinstall
       - Should "achan" be a superuser (sudo)?
         - Yes
 - Profile
-  - Type
-    - Desktop
-      - KDE Plasma
-        - plasma-meta (Recommended)
-  - Graphics driver
-    - [x] Nvidia (open kernel module for newer GPUs, Turing+)
 - Applications
 - Network configuration
   - Use Network Manager (default backend)
@@ -94,17 +88,19 @@ archinstall
     - Reboot system
 
 ```
-Arch Linux 7.0.8-arch1-1 (tty1)
+Arch Linux 7.0.10-arch1-1 (tty1)
 
-hyprarch login: achan
+itryarchbtw login: achan
 Password:
-[achan@hyprarch ~]]$ _
+[achan@itryarchbtw ~]]$ _
 ```
 
 ## Makefile
 
 ```sh
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
+curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.pkgs
+curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.yays
 sudo pacman -S make
 reboot
 ```

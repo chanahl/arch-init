@@ -11,7 +11,7 @@ help: ## Show targets (make)
 
 init: ## Initialize Arch Linux
 	sudo pacman -Syu --noconfirm
-	$(PACMANW) base-devel foot git gcc gpsd openssh tr vim xargs
+	$(PACMANW) base-devel foot git gcc gpsd openssh vim
 
 	mkdir -p /mnt/d
 	mkdir -p /mnt/alpha-prime/srv
