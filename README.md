@@ -113,5 +113,9 @@ reboot
 ## Hyprland
 
 ```sh
+hyprland
+# SUPER + M
 vim ~/.config/hypr/hyprland.conf
+# $terminal = foot
+hyprland
 ```
