@@ -65,7 +65,7 @@ archinstall
 - Kernels
   - Kernel: linux
 - Hostname
-  - Hostname: hyprarch
+  - Hostname: itryarchbtw
 - Authentication
   - Root password: ****
   - User account
