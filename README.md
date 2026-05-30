@@ -54,7 +54,7 @@ archinstall
       - Would you like to use compression or disable CoW?
         - Use compression
     - BTRFS snapshots
-      - Timeshift
+      - Snapper
 - Swap
   - Swap on zram: Enabled
   - Compression algorithm: zstd
