@@ -17,6 +17,7 @@ init: ## Initialize Arch Linux
 	sudo mkdir -p /mnt/d
 	sudo mkdir -p /mnt/alpha-prime/srv
 
+	mkdir -p ~/.ssh
 	mkdir -p ~/repos/aur
 	mkdir -p ~/repos/codeberg/dsge0
 	mkdir -p ~/repos/github/chanahl
@@ -40,6 +41,9 @@ list_pkgs: ## Lists all official packages to be installed
 
 list_yays: ## Lists all Arch User Repository packages to be installed
 	@grep -vE '^\s*($|#)' $(YAYS)
+
+ohmyposh: ## Runs curl -s https://ohmyposh.dev/install.sh | bash -s
+	curl -s https://ohmyposh.dev/install.sh | bash -s
 
 resolve_pkgs: ## Prints sync command for official packages
 	@echo "$(PACMANW) $$(grep -vE '^[[:space:]]*($|#)' $(PKGS) | tr -d '\r' | xargs)"

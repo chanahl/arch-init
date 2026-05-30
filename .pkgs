@@ -13,7 +13,7 @@ wireplumber
 egl-wayland
 libva-nvidia-driver
 linux-headers
-nvidia-dkms
+nvidia-open-dkms
 nvidia-utils
 lib32-nvidia-utils
 
@@ -53,6 +53,7 @@ qt6-declarative
 qt6-positioning
 rofi
 swaync
+waybar
 xdg-desktop-portal
 xdg-desktop-portal-hyprland
 
@@ -73,7 +74,6 @@ obs-studio
 
 # terminal
 fastfetch
-#curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # utilities
 7zip

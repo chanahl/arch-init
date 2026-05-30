@@ -59,7 +59,7 @@ archinstall
   - Swap on zram: Enabled
   - Compression algorithm: zstd
 - Bootloader
-  - Bootloader: Grub
+  - Bootloader: Limine
   - UKI: Enabled
   - Removable: Enable
 - Kernels
@@ -113,5 +113,5 @@ reboot
 ## Hyprland
 
 ```sh
-vim ~/.config/hypr/hyprland.lua
+vim ~/.config/hypr/hyprland.conf
 ```

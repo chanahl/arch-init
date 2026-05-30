@@ -23,13 +23,12 @@ bibata-cursor-theme-bin
 nordic-theme
 orbit-wifi
 qt6ct-kde
-waybar-cava-git
 waybar-module-pacman-updates-git
 
 # network
 nordvpn-bin
 soulseekqt
-sunshine
+sunshine-bin
 
 # utilities
 1password
