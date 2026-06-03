@@ -15,14 +15,42 @@
 
 ```sh
 <RETURN>
-pacman -Sy
-pacman -S archinstall
+pacman -Sy archinstall
 vim /etc/pacman.conf
 ```
 
 ```diff
 -ParallelDownloads = 5
 +ParallelDownloads = 20
+```
+
+```sh
+lsblk
+wipefs -a /dev/nvme0n1
+sgdisk --zap-all /dev/nvme0n1
+partprobe /dev/nvme0n1
+```
+
+```sh
+cfdisk /dev/nvme0n1
+```
+
+- Select label type: gpt
+  - New
+    - 4G
+    - /dev/nvme0n1p1
+  - Type
+    - EFI System
+  - New
+    - <Remaining space>
+    - /dev/nvme0n1p2
+  - Type
+    - Linux filesystem
+  - Write
+
+```sh
+mkfs.fat -F32 /dev/nvme0n1p1
+mkfs.ext4 /dev/nvme0n1p2
 ```
 
 ```sh
@@ -43,18 +71,12 @@ archinstall
     - [x] multilib
 - Disk configuration
   - Partitioning
-    - Use a best-effort default partition layout
+    - Manual Partitioning
       - /dev/nvme0n1: (__choose the 'os' drive__)
-        - [ ] btrfs (super slow)
-        - [x] ext4 (fast and reliable but not as fast as xfs)
-        - [ ] xfs (cannot resize drive after initialization)
-        - [ ] f2fs (wtf is this)
-      - Would you like to use BTRFS subvolumes with a default structure?
-        - Yes
-      - Would you like to use compression or disable CoW?
-        - Use compression
-    - BTRFS snapshots
-      - Snapper
+        - /dev/nvme0n1p1
+          - Mountpoint: /boot
+        - /dev/nvme0n1p2
+          - Mountpoint: /
 - Swap
   - Swap on zram: Enabled
   - Compression algorithm: zstd
@@ -85,7 +107,7 @@ archinstall
   - NTP: Enabled
 
 - Install
-  - Installation completed in 1m42s
+  - Installation completed in 0m50s
     - Reboot system
 
 ```
@@ -99,6 +121,7 @@ Password:
 ## Makefile
 
 ```sh
+mkdir .raw; cd .raw
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.pkgs
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.yays
