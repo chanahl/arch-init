@@ -107,7 +107,7 @@ archinstall
   - NTP: Enabled
 
 - Install
-  - Installation completed in 0m50s
+  - Installation completed in 0m49s
     - Reboot system
 
 ```
