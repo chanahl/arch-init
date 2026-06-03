@@ -121,7 +121,6 @@ Password:
 ## Makefile
 
 ```sh
-mkdir .raw; cd .raw
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/Makefile
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.pkgs
 curl -O https://raw.githubusercontent.com/chanahl/arch-init/master/.yays
