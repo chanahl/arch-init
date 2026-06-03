@@ -132,6 +132,7 @@ make sync_pkgs
 reboot
 make sync_yays
 reboot
+make ohmyposh
 ```
 
 ## Hyprland
