@@ -17,6 +17,7 @@ init: ## Initialize Arch Linux
 
 	sudo mkdir -p /mnt/d
 	sudo mkdir -p /mnt/alpha-prime/srv
+	sudo mkdir -p /mnt/alpha-prime/var
 
 	mkdir -p ~/.ssh
 	mkdir -p ~/repos/aur
