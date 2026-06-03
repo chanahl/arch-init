@@ -45,8 +45,8 @@ archinstall
   - Partitioning
     - Use a best-effort default partition layout
       - /dev/nvme0n1: (__choose the 'os' drive__)
-        - [x] btrfs (super slow)
-        - [ ] ext4 (fast and reliable but not as fast as xfs)
+        - [ ] btrfs (super slow)
+        - [x] ext4 (fast and reliable but not as fast as xfs)
         - [ ] xfs (cannot resize drive after initialization)
         - [ ] f2fs (wtf is this)
       - Would you like to use BTRFS subvolumes with a default structure?
