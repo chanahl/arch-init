@@ -37,7 +37,7 @@ cfdisk /dev/nvme0n1
 
 - Select label type: gpt
   - New
-    - 4G
+    - 2G
     - /dev/nvme0n1p1
   - Type
     - EFI System
