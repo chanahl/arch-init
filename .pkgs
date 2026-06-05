@@ -48,9 +48,9 @@ hyprpolkitagent
 kvantum
 libnotify
 qt6-base
-qt6-wayland
 qt6-declarative
 qt6-positioning
+qt6-wayland
 rofi
 swaync
 waybar
