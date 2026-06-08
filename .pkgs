@@ -106,6 +106,7 @@ xclip
 wget
 wine
 wl-clipboard
+xorg-xrdb
 zoxide
 
 # video
