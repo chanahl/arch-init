@@ -56,7 +56,6 @@ qt6-positioning
 qt6-wayland
 rofi
 swaync
-swayosd
 waybar
 xdg-desktop-portal
 xdg-desktop-portal-hyprland
@@ -74,6 +73,7 @@ openrgb
 solaar
 
 # stream
+moonlight-qt
 obs-studio
 
 # terminal
